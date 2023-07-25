@@ -3,6 +3,7 @@ package com.customer.servicecustomers.services;
 
 import java.util.List;
 
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,15 +39,21 @@ public class CustomerServiceImpl implements CustomerService {
 	 */
 	@Override
 	public String averageAge() {
+		int average = 0;
 		List<Customer> customers = customerRepository.findAll();
 		int acumulatorAge = 0;
 		for(Customer c: customers) {
 			acumulatorAge = acumulatorAge + c.getAge();
 		}
-		int average = acumulatorAge / customers.size();
+		try {
+			if (customers.size() != 0) {
+				average = acumulatorAge / customers.size();
+			}
+		} catch (Exception e){
+			e.getMessage();
+		}
+
 		return "The age average is: " + average;
-		
-		
 	}
 
 	@Override

@@ -1,0 +1,10 @@
+INSERT INTO customer (name, last_name, age, birth_date) VALUES ('John', 'Doe', 30, '1993-05-15');
+INSERT INTO customer (name, last_name, age, birth_date) VALUES ('Alice', 'Smith', 25, '1998-09-20');
+INSERT INTO customer (name, last_name, age, birth_date) VALUES ('Michael', 'Johnson', 40, '1983-11-10');
+INSERT INTO customer (name, last_name, age, birth_date) VALUES ('Emma', 'Williams', 22, '2001-07-03');
+INSERT INTO customer (name, last_name, age, birth_date) VALUES ('Robert', 'Brown', 35, '1986-02-28');
+INSERT INTO customer (name, last_name, age, birth_date) VALUES ('Sophia', 'Lee', 28, '1993-12-08');
+INSERT INTO customer (name, last_name, age, birth_date) VALUES ( 'William', 'Taylor', 33, '1989-04-25');
+INSERT INTO customer (name, last_name, age, birth_date) VALUES ('Olivia', 'Martin', 29, '1992-08-18');
+INSERT INTO customer (name, last_name, age, birth_date) VALUES ('James', 'Anderson', 31, '1990-06-12');
+INSERT INTO customer (name, last_name, age, birth_date) VALUES ('Isabella', 'Jackson', 27, '1994-10-05');

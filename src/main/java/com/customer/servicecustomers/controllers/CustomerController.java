@@ -2,6 +2,7 @@ package com.customer.servicecustomers.controllers;
 
 import java.util.List;
 
+import com.customer.servicecustomers.dtos.CustomerDiedDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +21,6 @@ public class CustomerController {
 	
 	@Autowired
 	private CustomerServiceImpl customerService;
-	
 	 
 	@PostMapping("/createCustomer")
 	public ResponseEntity<CustomerDTO> create(@RequestBody CustomerDTO customerDto){
@@ -34,7 +34,7 @@ public class CustomerController {
 	}
 	
 	@GetMapping("/listCustomers")
-	public ResponseEntity<List<Customer>> listCustomersAndDiedDate(){
+	public ResponseEntity<List<CustomerDiedDTO>> listCustomersAndDiedDate(){
 		return ResponseEntity.ok(customerService.customersAndEndDate());
 	}
 }

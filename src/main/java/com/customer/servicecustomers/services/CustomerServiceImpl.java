@@ -1,9 +1,11 @@
 package com.customer.servicecustomers.services;
 
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.logging.log4j.Logger;
+import com.customer.servicecustomers.dtos.CustomerDiedDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,9 +19,7 @@ public class CustomerServiceImpl implements CustomerService {
 	@Autowired
 	private CustomerRepository customerRepository;
 	
-	/** Create customer.
-	 * 
-	 */
+	/** Create customer. */
 	@Override
 	public void createCustomer(CustomerDTO customerDto) {
               
@@ -56,8 +56,37 @@ public class CustomerServiceImpl implements CustomerService {
 		return "The age average is: " + average;
 	}
 
+
+	/**
+	 * List of customers and end date died.
+	 *
+	 * @return customers and his died date.
+	 */
 	@Override
-	public List<Customer> customersAndEndDate() {
-		return customerRepository.findAll();
+	public List<CustomerDiedDTO> customersAndEndDate() {
+		List<CustomerDiedDTO> customerDiedDTOS = new ArrayList<>();
+		for (Customer customer: customerRepository.findAll()) {
+			CustomerDiedDTO customerDiedDTO = new CustomerDiedDTO(customer.getName(), customer.getLastName(),
+					customer.getAge(), customer.getBirthDate(), calculateEndDate(customer.getBirthDate()));
+
+			customerDiedDTOS.add(customerDiedDTO);
+		}
+		return customerDiedDTOS;
+	}
+
+	/** Calculates the died date, the average date died is 80
+	 *
+	 * @param birthDate for to calculate died of date.
+	 *
+	 * @return date of died.
+	 */
+	private String calculateEndDate(LocalDate birthDate) {
+		if (birthDate.getYear() > 1950 && birthDate.getYear()< 1980) {
+			return birthDate.getYear() + 30 + "-" + birthDate.getMonthValue()
+					+ "-" + birthDate.getDayOfMonth();
+		} else {
+			return birthDate.getYear() + 60 + "-" + birthDate.getMonthValue()
+					+ "-" + birthDate.getDayOfMonth();
+		}
 	}
 }

@@ -3,7 +3,6 @@ package com.customer.servicecustomers.dtos;
 import java.time.LocalDate;
 
 public class CustomerDiedDTO {
-	
 	private String name;
 	
 	private String last_name;
@@ -67,6 +66,4 @@ public class CustomerDiedDTO {
 	public void setEnd_date(String end_date) {
 		this.end_date = end_date;
 	}
-	
-
 }

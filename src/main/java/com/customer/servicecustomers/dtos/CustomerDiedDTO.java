@@ -38,7 +38,6 @@ public class CustomerDiedDTO {
 		this.age = age;
 	}
 
-
 	public void setBirthDate(LocalDate birth_date) {
 		this.birth_date = birth_date;
 	}

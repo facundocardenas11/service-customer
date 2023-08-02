@@ -2,6 +2,7 @@ package com.customer.servicecustomers.controllers;
 
 import java.util.List;
 
+import com.customer.servicecustomers.dtos.CustomerAverageDTO;
 import com.customer.servicecustomers.dtos.CustomerDiedDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.customer.servicecustomers.dtos.CustomerDTO;
-import com.customer.servicecustomers.models.Customer;
 import com.customer.servicecustomers.services.CustomerServiceImpl;
 
 @RestController
@@ -29,7 +29,7 @@ public class CustomerController {
 	}
 	
 	@GetMapping("/kpiOfCustomers")
-	public ResponseEntity<String> kpiDeClientes() {
+	public ResponseEntity<CustomerAverageDTO> kpiDeClientes() {
 		return ResponseEntity.ok(customerService.averageAge());
 	}
 	

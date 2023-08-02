@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.customer.servicecustomers.dtos.CustomerAverageDTO;
 import com.customer.servicecustomers.dtos.CustomerDiedDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,10 +36,10 @@ public class CustomerServiceImpl implements CustomerService {
 
 	/** Indicates average of customers.
 	 * 
-	 * @return the average of customers.
+	 * @return the averageDto with the average date.
 	 */
 	@Override
-	public String averageAge() {
+	public CustomerAverageDTO averageAge() {
 		int average = 0;
 		List<Customer> customers = customerRepository.findAll();
 		int acumulatorAge = 0;
@@ -52,10 +53,8 @@ public class CustomerServiceImpl implements CustomerService {
 		} catch (Exception e){
 			e.getMessage();
 		}
-
-		return "The age average is: " + average;
+		return new CustomerAverageDTO(average);
 	}
-
 
 	/**
 	 * List of customers and end date died.

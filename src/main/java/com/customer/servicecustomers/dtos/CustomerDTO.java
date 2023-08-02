@@ -3,7 +3,6 @@ package com.customer.servicecustomers.dtos;
 import java.time.LocalDate;
 
 public class CustomerDTO {
-	
 	private String name;
 	
 	private String last_name;
@@ -53,6 +52,4 @@ public class CustomerDTO {
 	public void setBirthDate(LocalDate birth_date) {
 		this.birth_date = birth_date;
 	}
-	
-	
 }
